@@ -5,30 +5,30 @@
 // All time measured in seconds
 const int SECONDSINHOUR = 3600;
 const int DELAYTIMEOFF = 600;
-const int DELAYTIMEON = 120;
-int GPIO_PIN = 2;
+const int DELAYTIMEON = 90;
 
-void getCmdOpts(float& hours, int argc, char** argv);
-void keepWarm();
+void getCmdOpts(float& hours, int& gpioPin, int argc, char** argv);
+void keepWarm(int gpioPin);
 
 int main(int argc, char** argv) {
 	float hours = 8.0;
-	getCmdOpts(hours, argc, argv);
+	int gpioPin = 2;
+	getCmdOpts(hours, gpioPin, argc, argv);
 	wiringPiSetupGpio();
-	pinMode(GPIO_PIN, OUTPUT);
-	digitalWrite(GPIO_PIN, HIGH);
+	pinMode(gpioPin, OUTPUT);
+	digitalWrite(gpioPin, HIGH);
 	// The delay is measured in milliseconds, so multiply by 1000	
 	delay(1000 * hours * SECONDSINHOUR);
-	digitalWrite(GPIO_PIN, LOW);
+	digitalWrite(gpioPin, LOW);
 
-	while(false) {
-		keepWarm();
+	while(true) {
+		keepWarm(gpioPin);
 	}
 	return 0;
 }
 
 
-void getCmdOpts(float& hours, int argc, char** argv) {
+void getCmdOpts(float& hours, int& gpioPin, int argc, char** argv) {
 	opterr = true;
 	int choice;
 	int optionIndex = 0;
@@ -44,17 +44,19 @@ void getCmdOpts(float& hours, int argc, char** argv) {
 				hours = std::atof(optarg);
 				break;
 			case 'p':
-				GPIO_PIN = std::atoi(optarg);
+				gpioPin = std::atoi(optarg);
 				break;
 		}
 	}
 }
 
 
-void keepWarm() {
-	digitalWrite(GPIO_PIN, LOW);
+void keepWarm(int gpioPin) {
+	digitalWrite(gpioPin, LOW);
+	// Turn the pot off for 10 minutes
 	delay(1000 * DELAYTIMEOFF);
-	digitalWrite(GPIO_PIN, HIGH);
+	// Turn it back on for 90 seconds to keep it warm
+	digitalWrite(gpioPin, HIGH);
 	delay(1000 * DELAYTIMEON);
 }
 

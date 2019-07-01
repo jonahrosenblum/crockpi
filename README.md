@@ -10,4 +10,9 @@ This code was written to run on a Raspberry Pi 3b+, I would be suprised if it wo
  
 \* If you are getting errors like `undefined reference to 'crypt'` try using ` g++ -Wall -o crockpi crockpi.cpp -pthread -lwiringPi -lm -lrt -lcrypt`
 ## Wiring
-COMING SOON
+### Specific Hardware
+I used the [DLI power relay](https://dlidirect.com/products/iot-power-relay) and the [Sunfounder DS18B20 temperature sensor](https://www.sunfounder.com/ds18b20-temperature-sensor-module.html). Both should be on Amazon for sale if they are sold out/shipping is expensive.
+
+### Wiring Schematic
+COMING SOON!
+

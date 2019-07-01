@@ -1,4 +1,4 @@
-# Crockpi Slow Cooker Timer
+# Crockpi Slow Cooker Timer/Controller
 ## Warnings and Notices
 I have personally used this to help me cook, and I haven't found any issues with it yet. Please do not injure yourself or even worse overcook you food using my timer due to incorrect installation. If you follow these instructions everything should work - if you want to do some quick testing plug a lamp or something else into your relay to see if it is being properly controlled. 
 This code was written to run on a Raspberry Pi 3b+, I would be suprised if it worked on any non-Pi related hardware.

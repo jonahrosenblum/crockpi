@@ -14,5 +14,10 @@ This code was written to run on a Raspberry Pi 3b+, I would be suprised if it wo
 I used the [DLI power relay](https://dlidirect.com/products/iot-power-relay) and the [Sunfounder DS18B20 temperature sensor](https://www.sunfounder.com/ds18b20-temperature-sensor-module.html). Both should be on Amazon for sale if they are sold out/shipping is expensive.
 
 ### Wiring Schematic
-COMING SOON!
+![Reference Photo](https://github.com/jonahrosenblum/crockpi/blob/master/photos/wiring-diagram.png)
+**If you only plan on using the timing feature and do not want to use the sensor, you can ignore the breadboard and sensor in the diagram.** All black wires pictured are ground wires. Yellow is SIG. Red is VCC. The white is another signal, it connects the GPIO pin to the positive terminal on the relay, the ground connects to the negative terminal on the relay.
+#### NOTE
+The DS18B20 shown in the diagram is different from the one I use, the one pictured in this diagram requires a 4.7K resistor to work, and the VCC and SIG are switched. The wires are relative to my DS18B20, please keep this in mind if you try and use the more common one.
+
+
 

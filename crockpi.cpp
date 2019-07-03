@@ -7,9 +7,9 @@
 const int SECONDSINHOUR = 3600;
 const int DELAYTIMEOFF = 600;
 const int DELAYTIMEON = 90;
-// This corresponds to 27 and 26 degrees celcius
-const int MAXTEMPERATURE = 27000;
-const int MINTEMPERATURE = 26000;
+// On the 'warm' setting, the outside of the crockpot is ~31.5 celcius, so give or take 2 degrees.
+const int MAXTEMPERATURE = 32500;
+const int MINTEMPERATURE = 30500;
 
 void getCmdOpts(float& hours, int& gpioPin, bool& sensor, int argc, char** argv);
 void keepWarmBasic(int gpioPin);

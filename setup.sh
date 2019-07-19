@@ -23,11 +23,11 @@ case $1 in
     "sensor_step1")
         read -p "Enter the pin number of your sensor's SIG wire: "  pin
         sudo echo "dtoverlay=w1-gpio,gpio-pin="$pin | sudo tee -a /boot/config.txt
-        read -p "To continue installing you must restart your pi, enter `y` to reboot. "  response
+        read -p "To continue installing you must restart your pi, enter 'y' to reboot. "  response
         if [ $response = "y" ]; 
         then
-            reboot;
-        else;
+            sudo reboot;
+        else
             echo "You will not be able to run the second step until you reboot."
         fi
         ;;

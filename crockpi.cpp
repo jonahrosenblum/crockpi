@@ -84,7 +84,6 @@ void keepWarmBasic(int gpioPin) {
 
 void keepWarmSensor(int gpioPin) {
 	int temperature = stoi(getTemperature());
-	std::cout << temperature << std::endl;
 	if (temperature > MAXTEMPERATURE) {
 		digitalWrite(gpioPin, LOW);
 	}

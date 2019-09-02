@@ -6,7 +6,7 @@
 std::string getDeviceName() {
 	// goes through the devices directory and finds the name of the sensor
 	std::string filename;
-	std::string deviceName = "";
+	std::string deviceName;
 	glob_t globResult;
 	glob("/sys/bus/w1/devices/*", GLOB_TILDE, NULL, &globResult);
 	for (unsigned int i = 0; i < globResult.gl_pathc; ++i) {
